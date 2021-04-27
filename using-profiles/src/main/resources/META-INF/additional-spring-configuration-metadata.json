@@ -1,0 +1,7 @@
+{"properties": [
+  {
+    "name": "com.training.custom.propName",
+    "type": "java.lang.String",
+    "description": "A description for 'com.training.custom.prop-name'"
+  }
+]}
