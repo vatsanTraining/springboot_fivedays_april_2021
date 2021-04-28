@@ -16,8 +16,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
   List<Customer> findByName(String srchName);
   
   
-//	  @Query(value ="from com.example.model.Customer(name,email)  where Customer.id=?1")
-//	  Customer findSlectiveColumn(String srchName);
+//	  @Query(value ="select com.example.model.Customer(c.name,c.email) from Customer c where c.id=?1")
+//	  Customer findSelctiveColumn(String srchName);
 
     @Query(value = "update Customer set email = :updateMail where id=:srchId")
 	@Modifying

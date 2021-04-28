@@ -71,6 +71,7 @@ public class CustomerController {
 	}
 	
 	
+	
 	@DeleteMapping(path = "/customers",produces = "application/json", consumes = "application/json")
 	public Customer removeCustomer(@RequestBody Customer customer) {
 		
