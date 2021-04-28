@@ -24,5 +24,12 @@ public class Customer {
 	int id;
 	String name;
 	String email;
+	public Customer(String name, String email) {
+		super();
+		this.name = name;
+		this.email = email;
+	}
+	
+	
 	
 }

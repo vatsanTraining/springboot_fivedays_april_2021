@@ -56,7 +56,7 @@ public class CustomerController {
 	}
 	
 	
-	@GetMapping(path = "/customers/{id}")
+	@GetMapping(path = "/customers/{id}",produces = "application/json")
 	public Customer getCustomerBYid(@PathVariable("id") int id)
 	{
 		
@@ -64,21 +64,21 @@ public class CustomerController {
 				  orElseThrow(()-> new RuntimeException("Customer Id Not Found"));
 	}
 	
-	@PutMapping(path = "/customers")
+	@PutMapping(path = "/customers",produces = "application/json", consumes = "application/json")
 	public Customer updateDateCustomer(@RequestBody Customer customer) {
 		
 		return this.service.update(customer);
 	}
 	
 	
-	@DeleteMapping(path = "/customers")
+	@DeleteMapping(path = "/customers",produces = "application/json", consumes = "application/json")
 	public Customer removeCustomer(@RequestBody Customer customer) {
 		
 		return this.service.removeCustomer(customer).orElseThrow(()->new RuntimeException("Customer Not Found -Not Delete"));
 		
 	}
 	
-	@GetMapping(path = "/srch/customers/{name}")
+	@GetMapping(path = "/srch/customers/{name}",produces = "application/json")
 	public List<Customer> findByName(@PathVariable("name") String name){
 		
 		return this.service.findByName(name);
