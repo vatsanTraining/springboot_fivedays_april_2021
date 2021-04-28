@@ -1,4 +1,6 @@
 package com.example.demo.repos;
+import com.example.demo.model.Customer;
+import com.example.demo.utils.ProjectNameAndEmail;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -15,10 +17,10 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	
   List<Customer> findByName(String srchName);
   
+ 
   
-//	  @Query(value ="select com.example.model.Customer(c.name,c.email) from Customer c where c.id=?1")
-//	  Customer findSelctiveColumn(String srchName);
-
+    List<ProjectNameAndEmail> findAllById(int id);
+ 
     @Query(value = "update Customer set email = :updateMail where id=:srchId")
 	@Modifying
 	@Transactional

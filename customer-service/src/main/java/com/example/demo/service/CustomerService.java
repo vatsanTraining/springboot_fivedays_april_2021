@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 
 import com.example.demo.model.Customer;
 import com.example.demo.repos.CustomerRepository;
+import com.example.demo.utils.ProjectNameAndEmail;
 
 @Service
 public class CustomerService {
@@ -65,5 +66,11 @@ public class CustomerService {
 		
 	}
 	
+	
+	public List<ProjectNameAndEmail> findSelectedColumns(int id){
+		
+		return this.repo.findAllById(id);
+		
+	}
 	
 }

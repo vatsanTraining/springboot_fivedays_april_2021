@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 import com.example.demo.model.*;
 import com.example.demo.service.CustomerService;
+import com.example.demo.utils.ProjectNameAndEmail;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -62,6 +63,14 @@ public class CustomerController {
 		
 		 return this.service.getCustomerById(id).
 				  orElseThrow(()-> new RuntimeException("Customer Id Not Found"));
+	}
+	
+	@GetMapping(path = "/customers/select/{id}",produces = "application/json")
+	public List<ProjectNameAndEmail> getNameAndEmail(@PathVariable("id") int id)
+	{
+		
+		 return this.service.findSelectedColumns(id);
+		 
 	}
 	
 	@PutMapping(path = "/customers",produces = "application/json", consumes = "application/json")
