@@ -11,6 +11,7 @@ import com.example.demo.repos.CustomerRepository;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.*;
 
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(title = "Customer Management",version = "1.0"))
@@ -35,6 +36,7 @@ public class CustomerServiceApplication {
 				repo.save(new Customer(101,"ramesh","ram@abc.com"));
 				repo.save(new Customer(102,"rajesh","raj@abc.com"));
 
+		
 			}
 		};
 	}

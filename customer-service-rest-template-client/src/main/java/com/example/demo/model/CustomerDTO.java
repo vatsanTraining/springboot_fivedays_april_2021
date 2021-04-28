@@ -1,14 +1,12 @@
 package com.example.demo.model;
 
 
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import java.util.*;
-import com.example.demo.model.*;
+
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @Data
@@ -16,5 +14,9 @@ import com.example.demo.model.*;
 
 public class CustomerDTO {
 
-	Customer[] custList;
+    
+	int id;
+	String name;
+	String email;
+	
 }
