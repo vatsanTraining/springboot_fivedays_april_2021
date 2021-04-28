@@ -10,6 +10,8 @@ public class ClientController {
 	
 	private RestTemplate template;
 
+	  String baseURL = "http://CUSTOMER-SERVICE/";
+
 	public ClientController(RestTemplate template) {
 		super();
 		this.template = template;
@@ -19,7 +21,6 @@ public class ClientController {
 	@GetMapping(path = "/client")
 	public String invokeCustomer() {
 		
-		  String baseURL = "http://CUSTOMER-SERVICE/";
 		  String srchURL = baseURL+"api/v1/customers";
 		  
            return  this.template.getForObject(srchURL,String.class);
