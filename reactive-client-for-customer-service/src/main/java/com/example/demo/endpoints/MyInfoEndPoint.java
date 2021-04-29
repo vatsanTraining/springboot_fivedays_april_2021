@@ -6,6 +6,9 @@ import org.springframework.boot.actuate.info.Info.Builder;
 import org.springframework.boot.actuate.info.InfoContributor;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.*;
 @Component
 public class MyInfoEndPoint implements InfoContributor {
@@ -23,8 +26,12 @@ public class MyInfoEndPoint implements InfoContributor {
 		      int beanCount =ctx.getBeanDefinitionCount();
 		      long startUpDate =      ctx.getStartupDate();
 		      
+		      Date date = new Date(startUpDate);
+		      
+		     LocalDateTime time= LocalDateTime.ofInstant(date.toInstant(),ZonedDateTime.now().getZone());
+		      
 		      response.put("beanCount",beanCount);
-		      response.put("Startup", startUpDate);
+		      response.put("Startup", time);
 		      
 		       builder.withDetails(response);
 	}
