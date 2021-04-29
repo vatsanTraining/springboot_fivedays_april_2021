@@ -4,7 +4,7 @@ server:
 spring:
   application:
     name: eureka-server-registry
-    
+  boot:    admin:      client:        url:        - http://localhost:9595   
 eureka:
   instance:
     hostname: localhost
