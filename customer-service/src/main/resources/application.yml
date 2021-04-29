@@ -1,1 +1,1 @@
-spring:  application:    name: customer-serviceserver:  port: 6065    management:  endpoints:    web:      exposure:        include:        - "*"
+spring:  application:    name: customer-service  boot:    admin:      client:        url:        - http://localhost:9595server:  port: 6065    management:  endpoints:    web:      exposure:        include:        - "*"
