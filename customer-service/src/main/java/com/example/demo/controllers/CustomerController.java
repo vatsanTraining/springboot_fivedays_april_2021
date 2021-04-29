@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,8 @@ import io.swagger.v3.oas.annotations.Operation;
 @RequestMapping(path = "/api/v1")
 public class CustomerController {
 
+	@Value("${server.port}")
+	private String port;
 	
 	private CustomerService service;
 
@@ -65,6 +68,7 @@ public class CustomerController {
 				 
 				 if(resp.isPresent()) {
 					 found = resp.get();
+					 found.setEmail(found.getEmail() +"="+port);
 				 } else {
 					
 					 new RuntimeException("Customer Id Not Found");
