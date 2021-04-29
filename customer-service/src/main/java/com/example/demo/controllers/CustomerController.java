@@ -56,14 +56,32 @@ public class CustomerController {
 		return new ResponseEntity<Customer>(added,HttpStatus.CREATED);
 	}
 	
-	
 	@GetMapping(path = "/customers/{id}",produces = "application/json")
-	public Customer getCustomerBYid(@PathVariable("id") int id)
+	public Customer getCustomerById(@PathVariable("id") int id)
 	{
 		
-		 return this.service.getCustomerById(id).
-				  orElseThrow(()-> new RuntimeException("Customer Id Not Found"));
+		Customer found = null;
+		 Optional<Customer> resp = this.service.getCustomerById(id);
+				 
+				 if(resp.isPresent()) {
+					 found = resp.get();
+				 } else {
+					
+					 new RuntimeException("Customer Id Not Found");
+				 }
+				  
+				 return found;
 	}
+	
+//	@GetMapping(path = "/customers/{id}",produces = "application/json")
+//	public Customer getCustomerById(@PathVariable("id") int id)
+//	{
+//		
+//		 return this.service.getCustomerById(id).
+//				  orElseThrow(()-> new RuntimeException("Customer Id Not Found"));
+//	}
+	
+	
 	
 	@GetMapping(path = "/customers/select/{id}",produces = "application/json")
 	public List<ProjectNameAndEmail> getNameAndEmail(@PathVariable("id") int id)
