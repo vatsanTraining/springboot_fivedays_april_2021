@@ -1,0 +1,9 @@
+server:
+  port: 7070
+  
+spring:  application:    name: reactive-client
+    
+eureka:  client:    service-url:      defaultZone: http://localhost:8761/eureka
+      
+      
+            
