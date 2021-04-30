@@ -22,7 +22,7 @@ public class OrderController {
 	    @ResponseStatus(HttpStatus.OK)
 	    @CircuitBreaker(name="order-service", fallbackMethod = "orderFallback")
 	    public ResponseEntity<String> createOrder(){
-	        String response = template.getForObject("http://localhost:8081/item", String.class);
+	        String response = template.getForObject("http://localhost:8081/order", String.class);
 	        return new ResponseEntity<String>(response, HttpStatus.OK);
 	    }
 	  
