@@ -27,10 +27,8 @@ public class MyPreFilter extends AbstractGatewayFilterFactory<MyPreFilter.Config
 			
 			  ServerHttpRequest request = exchange.getRequest();
 
-			    URI requestUrl = exchange.getRequiredAttribute(ServerWebExchangeUtils.GATEWAY_REQUEST_URL_ATTR);
-
+			   
 			            System.out.println("PRE FILTER =:"+request);
-			           System.out.println("PRE Filter =:"+ requestUrl);
 			            
 			            return chain.filter(exchange.mutate().build());
 			     
