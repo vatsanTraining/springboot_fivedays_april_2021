@@ -15,6 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
+		
 		auth.inMemoryAuthentication().withUser("india").password("{noop}india").roles("ADMIN")
 		       .and().withUser("chennai").password("{noop}chennai").roles("GUEST");
 	
@@ -24,7 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 	
-		http.authorizeRequests().antMatchers("/orders/**").authenticated().and().formLogin();
+		//http.authorizeRequests().antMatchers("/orders/**").authenticated().and().formLogin();
+		
+		http.authorizeRequests().antMatchers("/orders/**").authenticated().and().httpBasic();
 	}
 
 	
