@@ -11,8 +11,12 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 public class ErrorHandler {
 
 	@ExceptionHandler(value = WebClientResponseException.class)
-	public ResponseEntity<String> handleWebClientResponseException(WebClientResponseException ex) {
-	    	    return ResponseEntity.status(ex.getRawStatusCode()).body(ex.getResponseBodyAsString());
+	public ErrorDetails handleWebClientResponseException(WebClientResponseException ex) {
+	    	  
+		ErrorDetails details = new ErrorDetails(ex.getRawStatusCode(),ex.getResponseBodyAsString());
+
+		return details;
+		//return ResponseEntity.status(ex.getRawStatusCode()).body(ex.getResponseBodyAsString());
 	}
 	
 
