@@ -10,5 +10,8 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+      default-filters:      - name: MyPreFilter
+      - name: MyPostFilter
+        
 
 management:  endpoints:    web:      exposure:        include:        - "*"
