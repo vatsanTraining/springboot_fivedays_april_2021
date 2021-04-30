@@ -19,9 +19,11 @@ import com.example.demo.service.CustomerService;
 import com.example.demo.utils.ProjectNameAndEmail;
 
 import io.swagger.v3.oas.annotations.Operation;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(path = "/api/v1")
+@Slf4j
 public class CustomerController {
 
 	@Value("${server.port}")
@@ -32,12 +34,14 @@ public class CustomerController {
 	public CustomerController(CustomerService service) {
 		super();
 		this.service = service;
+		log.info("Customer Controller called");
 	}
 	
 	@Operation(description = "This endpoint retrieves the List of Customer from april month customer table")
 	@GetMapping(path = "/customers",produces = "application/json")
 	public List<Customer> findAll(){
 		
+		log.info("find all customers called");
 		return this.service.getAllCustomers();
 	}
 	
